@@ -31,9 +31,7 @@ export class PanelComponent implements OnInit {
 
   ngOnInit() {
     this.searchControl = new FormControl();
-
     // this.locations = this.locationsService.getMarkers();
-
     this.locationsService.getMarkers2().subscribe((res: any[]) => {
       if (res) {
         res.forEach(item => {

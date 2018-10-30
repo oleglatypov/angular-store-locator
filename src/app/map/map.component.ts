@@ -30,23 +30,6 @@ export class MapComponent implements OnInit {
   ) {
   }
 
-
-  //{
-  //       lat: 43.678418,
-  //       lng: -79.809007,
-  //       title: 'A',
-  //       icon: 'https://www.ftsgps.com/wp-content/uploads/2017/05/icon-location-100.png',
-  //       draggable: false,
-  //       street: '123 Yonge Street',
-  //       city: 'Toronto',
-  //       state: 'ON',
-  //       postalcode: '75201',
-  //       email: 'test@example.com',
-  //       phone: '111-111-1111',
-  //       website: 'http://example.com',
-  //       detail: 'InfoWindow content'
-  //     }
-
   ngOnInit() {
     this.locationService.getMarkers2().subscribe((res: any[]) => {
       if (res) {
@@ -113,7 +96,7 @@ export class MapComponent implements OnInit {
       navigator.geolocation.getCurrentPosition((position) => {
         this.lat = this.mapsService.lat = position.coords.latitude;
         this.lng = this.mapsService.lng = position.coords.longitude;
-        this.zoom = 10;
+        this.zoom = 15;
       });
     }
 
