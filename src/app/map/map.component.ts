@@ -18,7 +18,10 @@ export class MapComponent implements OnInit {
 
   public openedWindow: number;
 
-  public markers: Marker[] = this.locationService.getMarkers();
+  // public markers: Marker[] = this.locationService.getMarkers();
+
+  public markers: Marker[] = [];
+
 
   constructor(
     private locationService: LocationsService,

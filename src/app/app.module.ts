@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {HttpClientModule} from '@angular/common/http';
+
 
 import { AgmCoreModule } from '@agm/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -20,8 +22,9 @@ import { LocationsService } from './locations.service';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyC3YoOM-CQR4M4trpDeZaxoMtlE38JOxKk',
+      apiKey: 'AIzaSyB3a71eakX1ji_aFPmQpGf5gWD278RRl4o',//AIzaSyB3a71eakX1ji_aFPmQpGf5gWD278RRl4o  AIzaSyC3YoOM-CQR4M4trpDeZaxoMtlE38JOxKk
       libraries: ['places']
     }),
     FormsModule,

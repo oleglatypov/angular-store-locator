@@ -31,7 +31,32 @@ export class PanelComponent implements OnInit {
   ngOnInit() {
     this.searchControl = new FormControl();
 
-    this.locations = this.locationsService.getMarkers();
+    // this.locations = this.locationsService.getMarkers();
+
+    this.locationsService.getMarkers2().subscribe((res: any[]) => {
+      if (res) {
+          res.forEach(item => {
+                this.locations.push({
+                  facilityId: item.id,
+                  lat: item.acf.geo_location.lat,
+                  lng: item.acf.geo_location.lng,
+                  title: item.acf.title,
+                  icon: './assets/img/map/pin_openClub.png',
+                  draggable: false,
+                  street: item.acf.address.street,
+                  city: item.acf.address.city,
+                  state: item.acf.address.state,
+                  postalcode: item.acf.address.zip,
+                  email: item.acf.contacts.email,
+                  phone: item.acf.contacts.phone,
+                  website: 'http://blinkfitness.com',
+                  detail: 'InfoWindow content'
+              });
+          });
+      console.log(' Panel Component -> this.locations ----->', this.locations);
+      }
+    });
+
 
     this.locationList = this.locations;
     this.sortLocations();
