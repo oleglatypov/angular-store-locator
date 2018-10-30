@@ -27,32 +27,50 @@ export class MapComponent implements OnInit {
     private locationService: LocationsService,
     private mapApiLoader: MapsAPILoader,
     private mapsService: MapsService
-  ) { }
+  ) {
+  }
+
+
+  //{
+  //       lat: 43.678418,
+  //       lng: -79.809007,
+  //       title: 'A',
+  //       icon: 'https://www.ftsgps.com/wp-content/uploads/2017/05/icon-location-100.png',
+  //       draggable: false,
+  //       street: '123 Yonge Street',
+  //       city: 'Toronto',
+  //       state: 'ON',
+  //       postalcode: '75201',
+  //       email: 'test@example.com',
+  //       phone: '111-111-1111',
+  //       website: 'http://example.com',
+  //       detail: 'InfoWindow content'
+  //     }
 
   ngOnInit() {
     this.locationService.getMarkers2().subscribe((res: any[]) => {
       if (res) {
-          res.forEach(item => {
-                this.markers.push({
-                  facilityId: item.id,
-                  lat: item.acf.geo_location.lat,
-                  lng: item.acf.geo_location.lng,
-                  title: item.acf.title,
-                  icon: './assets/img/map/pin_openClub.png',
-                  draggable: false,
-                  street: item.acf.address.street,
-                  city: item.acf.address.city,
-                  state: item.acf.address.state,
-                  postalcode: item.acf.address.zip,
-                  email: item.acf.contacts.email,
-                  phone: item.acf.contacts.phone,
-                  website: 'http://blinkfitness.com',
-                  detail: 'InfoWindow content'
-              });
+        res.forEach(item => {
+          this.markers.push({
+            facilityId: item.id,
+            lat: Number(item.acf.geo_location.lat),
+            lng: Number(item.acf.geo_location.lng),
+            title: item.acf.title,
+            icon: './assets/img/map/pin_openClub.png',
+            draggable: false,
+            street: item.acf.address.street,
+            city: item.acf.address.city,
+            state: item.acf.address.state,
+            postalcode: item.acf.address.zip,
+            email: item.acf.contacts.email,
+            phone: item.acf.contacts.phone,
+            website: 'http://blinkfitness.com',
+            detail: 'InfoWindow content'
           });
-      console.log('this._locationService 2 ----->', this.markers);
+        });
+        console.log('map component -> this.markers ----->', this.markers);
       }
-  });
+    });
 
     this.lat = this.mapsService.lat;
     this.lng = this.mapsService.lng;

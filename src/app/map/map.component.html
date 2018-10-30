@@ -15,13 +15,13 @@
     [iconUrl]="m.icon"
     [markerDraggable]="m.draggable">
 
-    <agm-info-window
-      [isOpen]="isInfoWindowOpen(i)">
+    <agm-info-window [isOpen]="isInfoWindowOpen(i)">
       <div class="title">{{ m.title }}</div>
       <div class="web">
         <a href="{{m.website}}" target="_blank">Visit Website</a>
       </div>
-      <div class="address">{{m.address}}
+      <div class="address">
+        <!--{{m.address}}-->
         <br>{{m.city}}, {{m.state}}, {{m.postalcode}}</div>
       <div class="phone">{{m.phone}}</div>            
       <div class="email">{{m.email}}</div>        

@@ -18,7 +18,7 @@ export class PanelComponent implements OnInit {
   public searchControl: FormControl;
 
   public locations: Marker[] = [];
-  public locationList: Marker[];
+  public locationList: Marker[] = [];
 
 
   constructor(
@@ -39,8 +39,8 @@ export class PanelComponent implements OnInit {
         res.forEach(item => {
           this.locations.push({
             facilityId: item.id,
-            lat: item.acf.geo_location.lat,
-            lng: item.acf.geo_location.lng,
+            lat:  Number(item.acf.geo_location.lat),
+            lng:  Number(item.acf.geo_location.lng),
             title: item.acf.title,
             icon: './assets/img/map/pin_openClub.png',
             draggable: false,
@@ -87,7 +87,6 @@ export class PanelComponent implements OnInit {
   }
 
   openWindow(location: Marker, index: number) {
-
     this.mapsService.openWindow.next(index);
     this.zoomToNewLocation(location.lat, location.lng);
   }
