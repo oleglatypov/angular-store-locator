@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Marker } from '../models';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class LocationsService {
@@ -53,10 +55,16 @@ export class LocationsService {
     }
   ];
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { 
+    
+  }
 
   getMarkers() {
     return this.markers;
+  }
+
+  getMarkers2(): Observable<any[]> {
+    return this.httpClient.get<any[]>(`https://qa.api.sls.blinkfitness.com/content/dev/web/facilities`);
   }
 
 }

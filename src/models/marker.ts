@@ -1,4 +1,5 @@
 export interface Marker {
+    facilityId?: string;
     lat: number;
     lng: number;
     draggable: boolean;
