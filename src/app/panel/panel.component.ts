@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MapsAPILoader } from '@agm/core';
-import { } from 'googlemaps';
+import {} from 'googlemaps';
 import { MapsService } from '../maps.service';
 import { LocationsService } from '../locations.service';
 import { Marker } from '../../models';
@@ -17,7 +17,7 @@ export class PanelComponent implements OnInit {
 
   public searchControl: FormControl;
 
-  public locations: Marker[];
+  public locations: Marker[] = [];
   public locationList: Marker[];
 
 
@@ -26,7 +26,8 @@ export class PanelComponent implements OnInit {
     private ngZone: NgZone,
     private mapsService: MapsService,
     private locationsService: LocationsService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.searchControl = new FormControl();
@@ -35,25 +36,25 @@ export class PanelComponent implements OnInit {
 
     this.locationsService.getMarkers2().subscribe((res: any[]) => {
       if (res) {
-          res.forEach(item => {
-                this.locations.push({
-                  facilityId: item.id,
-                  lat: item.acf.geo_location.lat,
-                  lng: item.acf.geo_location.lng,
-                  title: item.acf.title,
-                  icon: './assets/img/map/pin_openClub.png',
-                  draggable: false,
-                  street: item.acf.address.street,
-                  city: item.acf.address.city,
-                  state: item.acf.address.state,
-                  postalcode: item.acf.address.zip,
-                  email: item.acf.contacts.email,
-                  phone: item.acf.contacts.phone,
-                  website: 'http://blinkfitness.com',
-                  detail: 'InfoWindow content'
-              });
+        res.forEach(item => {
+          this.locations.push({
+            facilityId: item.id,
+            lat: item.acf.geo_location.lat,
+            lng: item.acf.geo_location.lng,
+            title: item.acf.title,
+            icon: './assets/img/map/pin_openClub.png',
+            draggable: false,
+            street: item.acf.address.street,
+            city: item.acf.address.city,
+            state: item.acf.address.state,
+            postalcode: item.acf.address.zip,
+            email: item.acf.contacts.email,
+            phone: item.acf.contacts.phone,
+            website: 'http://blinkfitness.com',
+            detail: 'InfoWindow content'
           });
-      console.log(' Panel Component -> this.locations ----->', this.locations);
+        });
+        console.log(' Panel Component -> this.locations ----->', this.locations);
       }
     });
 
