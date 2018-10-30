@@ -55,8 +55,8 @@ export class LocationsService {
     }
   ];
 
-  constructor(private httpClient: HttpClient) { 
-    
+  constructor(private httpClient: HttpClient) {
+
   }
 
   getMarkers() {
