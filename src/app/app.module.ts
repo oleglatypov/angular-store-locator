@@ -24,7 +24,7 @@ import { LocationsService } from './locations.service';
     BrowserModule,
     HttpClientModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyB3a71eakX1ji_aFPmQpGf5gWD278RRl4o',//AIzaSyB3a71eakX1ji_aFPmQpGf5gWD278RRl4o  AIzaSyC3YoOM-CQR4M4trpDeZaxoMtlE38JOxKk
+      apiKey: 'Enter API KEY',
       libraries: ['places']
     }),
     FormsModule,
