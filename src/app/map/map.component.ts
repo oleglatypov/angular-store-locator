@@ -39,7 +39,7 @@ export class MapComponent implements OnInit {
             lat: Number(item.acf.geo_location.lat),
             lng: Number(item.acf.geo_location.lng),
             title: item.acf.title,
-            icon: './assets/img/map/pin_openClub.png',
+            icon: 'https://www.ftsgps.com/wp-content/uploads/2017/05/icon-location-100.png',
             draggable: false,
             street: item.acf.address.street,
             city: item.acf.address.city,

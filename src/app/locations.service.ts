@@ -64,7 +64,7 @@ export class LocationsService {
   }
 
   getMarkers2(): Observable<any[]> {
-    return this.httpClient.get<any[]>(`https://qa.api.sls.blinkfitness.com/content/dev/web/facilities`);
+    return this.httpClient.get<any[]>(`https://qa.api.sls.blinkfitness.com/content/dev/web/facilities?page=1&per_page=100`);
   }
 
 }
